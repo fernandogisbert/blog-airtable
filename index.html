@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/spectre.min.css">
+    <script src="./js/vendors/vue.min.js"></script>
+    <script defer src="./js/main.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <button @click="mostrarEditor">Crear entrada</button>
+        <div v-if="crearEntrada" >
+            <input type="text" v-model="nuevoTitulo">
+            <textarea v-model="nuevoContenido" cols="30" rows="10"></textarea>
+            <button @click="anyadirArticulo">Publicar</button>
+        </div>
+        <div v-else v-for="articulo in blog">
+            <h1>{{articulo.fields.titulo}}</h1>
+            <p>{{articulo.fields.contenido}}</p>
+
+        </div>
+
+        
+    </div>
+
+
+</body>
+</html>
